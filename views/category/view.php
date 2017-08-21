@@ -64,10 +64,10 @@ use yii\helpers\Html;
                                 <div class="productinfo text-center">
                                     <?= Html::img("@web/images/products/{$product->img}")?>
                                     <h2>$<?= $product->price?></h2>
-                                    <p><?= $product->name?></p>
+                                    <p><a href="<?= \yii\helpers\Url::to(['product/view','id'=>$product->id])?>"><?= $product->name?></a></p>
                                     <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                                 </div>
-<!--                                                              <?php if ($product->new):?>
+                             <?php if ($product->new):?>
                                     <?= Html::img("@web/images/home/new.png",['alt'=>'Новинка','class'=>'new'])?>
                                 <?php endif;?>
                                 <?php if ($product->sale):?>
@@ -88,7 +88,7 @@ use yii\helpers\Html;
                                 <div class="clearfix"></div>
                                 <?php endif;?>
                             <?php endforeach;?>
-                        <div class="clearfix"></div>
+                       <div class="clearfix"></div>
                         <?php
                         echo \yii\widgets\LinkPager::widget(['pagination'=>$pages,]);
                         ?>
