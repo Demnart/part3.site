@@ -34,7 +34,7 @@ extends AppController
         $pages = new Pagination(['totalCount'=>$querry->count(),'pageSize'=>3,'pageSizeParam' => false, 'forcePageParam' => false]);
         $products =$querry->offset($pages->offset)->limit($pages->limit)->all();
         $category = Category::findOne($id);
-                $this->setMeta('E_SHOPPER | ' . $category->name,$category->keywords,$category->description);
+        $this->setMeta('E_SHOPPER | ' . $category->name,$category->keywords,$category->description);
         return $this->render('view',compact('products','pages','category'));
 
     }
